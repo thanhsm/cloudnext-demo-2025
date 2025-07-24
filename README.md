@@ -54,7 +54,7 @@ cloudshell workspace ~
 ```bash
 git clone https://github.com/thanhsm/cloudnext-demo-2025.git
 cd cloudnext-demo-2025
-sudo python3 -m pip install -r adk_project/requirements.txt
+sudo python3 -m pip install -r requirements.txt
 ```
 
 ---
@@ -62,7 +62,7 @@ sudo python3 -m pip install -r adk_project/requirements.txt
 ## 📁 Project Structure
 
 ```
-adk_project/
+cloudnext-demo-2025/
 ├── my_google_search_agent/
 │   ├── agent.py
 │   └── __init__.py
