@@ -37,7 +37,6 @@ async def main():
         instruction="Answer questions.",
         before_model_callback=log_query_to_model,
         after_model_callback=log_model_response,
-
     )
 
     # 3. Create a Runner
