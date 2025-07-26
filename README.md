@@ -207,6 +207,15 @@ python3 app_agent/agent.py
 adk run my_google_search_agent
 ```
 
+In `my_google_search_agent/agent.py`:
+
+add this code
+```python
+    # tools: functions to enhance the model's capabilities.
+    # Add the google_search tool below.
+    tools=[google_search]
+```
+
 Example prompt:
 
 ```
