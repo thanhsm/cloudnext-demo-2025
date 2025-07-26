@@ -70,7 +70,7 @@ async def main():
 
 
     # 6. Use this function on a new query
-    query = "What is the capital of France?"
+    query = "What is the capital of Vietnam?"
     await run_prompt(my_session, query)
 
 if __name__ == "__main__":

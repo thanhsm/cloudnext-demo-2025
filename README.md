@@ -46,11 +46,16 @@ You will learn to:
 
 ## 🖥️ Environment Setup
 
-### 1. Open Cloud Shell Editor
+### 1. Open Cloud Shell Editor and enable the Vertex AI API
 
 ![cloud shell](.github/open_cloud_shell.png)
 
 > Close Gemini/tutorial panels for more space.
+
+- Enable the Vertex AI API
+```bash
+gcloud services enable aiplatform.googleapis.com
+```
 
 ### 2. Clone sample project
 
@@ -67,13 +72,12 @@ Follow the detailed installation guide in [ADK documentation](https://google.git
 
 ```bash
 python3 -m venv .venv
-source .venv/bin/activate
 ```
 
 - Install ADK:
 
 ```bash
-pip install google-adk
+sudo python3 -m pip install google-adk
 ```
 
 Install some required dependencies for this codelab:
@@ -118,13 +122,24 @@ Each subdirectory = one agent.
 
 ### 1. Configure `.env`
 
-Create `.env` file in `my_google_search_agent` directory and add following variables:
+Create `.env` file in `root` directory and add following variables:
 
 ```env
 GOOGLE_GENAI_USE_VERTEXAI=TRUE
 GOOGLE_CLOUD_PROJECT=<<REPLACE_WITH_YOUR_GCP_PROJECT_ID>>
-GOOGLE_CLOUD_LOCATION=<<REPLACE_WITH_YOUR_GCP_LOCATION>> // e.g. us-central1
-MODEL=gemini-2.0-flash-001
+GOOGLE_CLOUD_LOCATION=us-central1
+MODEL=gemini-2.0-flash
+```
+
+or Copy & Paste
+
+```bash
+cat << EOF > .env
+GOOGLE_GENAI_USE_VERTEXAI=TRUE
+GOOGLE_CLOUD_PROJECT=<<REPLACE_WITH_YOUR_GCP_PROJECT_ID>>
+GOOGLE_CLOUD_LOCATION=us-central1
+MODEL=gemini-2.0-flash
+EOF
 ```
 
 ### 2. Launch Dev UI
@@ -141,8 +156,7 @@ Open [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser and select `
 Try:
 
 ```
-hello
-What is some recent global news?
+What is GDG Vietnam?
 ```
 
 > View `grounding_metadata` and search suggestions.
@@ -156,15 +170,6 @@ What is some recent global news?
 ---
 
 ## ⚙️ Task 2: Run Programmatically
-
-### Set environment variables:
-
-```bash
-export GOOGLE_GENAI_USE_VERTEXAI=TRUE
-export GOOGLE_CLOUD_PROJECT=REPLACE_WITH_YOUR_GCP_PROJECT_ID
-export GOOGLE_CLOUD_LOCATION=REPLACE_WITH_YOUR_GCP_LOCATION
-export MODEL=gemini-2.0-flash-001
-```
 
 ### Run script
 
@@ -220,17 +225,6 @@ Structure:
 
   - `critic_agent`
   - `reviser_agent`
-
-### Configure `.env`:
-
-```bash
-cat << EOF > llm_auditor/.env
-GOOGLE_GENAI_USE_VERTEXAI=TRUE
-GOOGLE_CLOUD_PROJECT=REPLACE_WITH_YOUR_GCP_PROJECT_ID
-GOOGLE_CLOUD_LOCATION=REPLACE_WITH_YOUR_GCP_LOCATION
-MODEL=gemini-2.0-flash-001
-EOF
-```
 
 ### Launch:
 
